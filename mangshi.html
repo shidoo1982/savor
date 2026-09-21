@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌴 成都 → 芒市 · 轻松纯玩 5 日行程单</title>
+<style>
+  :root{
+    --cream:#fff8ef; --ink:#3a2f2a; --sun:#ffb627; --coral:#ff6b6b;
+    --leaf:#3fa34d; --sky:#4d96ff; --pink:#ff8fab; --tape:#ffe066;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+    background:
+      radial-gradient(circle at 12% 18%, #fff3d6 0, transparent 38%),
+      radial-gradient(circle at 88% 12%, #ffe2ec 0, transparent 40%),
+      radial-gradient(circle at 70% 90%, #d9f3e0 0, transparent 42%),
+      var(--cream);
+    color:var(--ink); line-height:1.7; overflow-x:hidden;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 70px}
+
+  /* ---------- 俏皮贴纸 ---------- */
+  .sticker{position:absolute;font-size:34px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15));user-select:none;z-index:5}
+  .spin-slow{animation:spin 9s linear infinite}
+  .float{animation:float 5s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(var(--r,0deg))}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* washi 胶带 */
+  .tape{position:absolute;background:repeating-linear-gradient(45deg,var(--tape),var(--tape) 8px,#ffd84d 8px,#ffd84d 16px);
+    width:90px;height:26px;opacity:.85;transform:rotate(-6deg);box-shadow:0 2px 4px rgba(0,0,0,.1);z-index:4}
+
+  /* ---------- HERO ---------- */
+  header.hero{position:relative;height:430px;border-radius:0 0 38px 38px;overflow:hidden;
+    box-shadow:0 18px 40px rgba(0,0,0,.22)}
+  header.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  header.hero .veil{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55))}
+  header.hero .title{position:absolute;left:0;right:0;bottom:30px;text-align:center;color:#fff;z-index:3;padding:0 16px}
+  header.hero h1{font-size:40px;letter-spacing:1px;text-shadow:0 3px 10px rgba(0,0,0,.5)}
+  header.hero p{font-size:17px;margin-top:8px;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+  .badge-flight{display:inline-block;margin-top:14px;background:#fff;color:var(--ink);
+    padding:6px 16px;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+
+  /* ---------- 卡片通用 ---------- */
+  .card{background:#fff;border-radius:26px;padding:26px 24px;margin:26px 0;
+    box-shadow:0 12px 30px rgba(180,140,90,.16);position:relative;border:3px dashed #ffd9a8}
+  .sec-title{font-size:24px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .sec-title .dot{width:14px;height:14px;border-radius:50%;background:var(--coral)}
+
+  /* 概览 */
+  .overview{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+  .ov{border-radius:18px;padding:16px 12px;text-align:center;color:#fff;font-weight:700}
+  .ov small{display:block;font-weight:400;font-size:12px;opacity:.92;margin-top:4px}
+  .ov.a{background:linear-gradient(135deg,#ff9a3c,#ff6b6b)}
+  .ov.b{background:linear-gradient(135deg,#3fa34d,#2e8b57)}
+  .ov.c{background:linear-gradient(135deg,#4d96ff,#6a5acd)}
+  .ov.d{background:linear-gradient(135deg,#ff8fab,#ff6b9d)}
+
+  /* 航班 */
+  .flight{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fbox{border-radius:18px;padding:18px;background:linear-gradient(135deg,#fff7e6,#fff)}
+  .fbox h4{font-size:16px;margin-bottom:10px}
+  .fbox .line{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee;font-size:14px}
+  .fbox .line:last-child{border:none}
+  .fbox b{color:var(--coral)}
+  .tag{display:inline-block;background:var(--tape);color:#7a5b00;border-radius:8px;padding:1px 8px;font-size:12px;font-weight:700}
+
+  /* 每日行程 */
+  .day{border-left:6px solid var(--sun);padding-left:0;margin:0}
+  .day-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .day-no{background:var(--sun);color:#fff;font-weight:800;border-radius:14px;padding:8px 14px;font-size:18px;box-shadow:0 4px 10px rgba(255,182,39,.5)}
+  .day h3{font-size:20px}
+  .day .sub{color:#8a7a6d;font-size:13px}
+  .day-body{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start}
+  .day-body img{width:100%;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,.18);display:block}
+  .tl{position:relative;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:3px;background:repeating-linear-gradient(var(--leaf),var(--leaf) 6px,transparent 6px,transparent 12px)}
+  .tl .ev{position:relative;margin-bottom:14px}
+  .tl .ev::before{content:"";position:absolute;left:-19px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--coral);border:3px solid #fff;box-shadow:0 0 0 2px var(--coral)}
+  .tl .ev .t{font-weight:800;color:var(--coral);font-size:14px}
+  .tl .ev .x{font-size:14.5px}
+  .chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:#fff2f4;color:#c23b5b;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+  .chip.eat{background:#eafaf0;color:#2e8b57}
+  .chip.stay{background:#eef4ff;color:#3d6bd6}
+
+  .optional{background:#fff;border:3px dashed #9be7b4;border-radius:26px;padding:24px;margin:26px 0;box-shadow:0 12px 30px rgba(60,160,90,.16);position:relative}
+
+  /* 图集 */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gal figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.15);background:#fff}
+  .gal img{width:100%;height:180px;object-fit:cover;display:block;transition:transform .4s}
+  .gal figure:hover img{transform:scale(1.06)}
+  .gal figcaption{padding:9px 10px;font-size:13px;font-weight:600;text-align:center}
+
+  /* 预算表 */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:6px}
+  th,td{padding:10px 12px;text-align:center;border-bottom:1px solid #f0e6d8}
+  th{background:#fff3df;color:#9a6b2f}
+  td.lab{text-align:left;font-weight:700}
+  .econ{color:#2e8b57}.comf{color:#c23b5b}
+
+  /* 贴士 */
+  .tips li{margin:8px 0 8px 4px;list-style:none;position:relative;padding-left:30px}
+  .tips li::before{content:"💡";position:absolute;left:0;top:0;font-size:18px}
+
+  footer{text-align:center;color:#9a8a7d;font-size:13px;margin-top:36px;line-height:1.9}
+
+  @media(max-width:760px){
+    .overview{grid-template-columns:repeat(2,1fr)}
+    .flight{grid-template-columns:1fr}
+    .day-body{grid-template-columns:1fr}
+    .gal{grid-template-columns:repeat(2,1fr)}
+    header.hero h1{font-size:30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- 飘浮贴纸 -->
+<div class="sticker float" style="top:120px;left:4%;--r:-12deg">🌴</div>
+<div class="sticker float" style="top:240px;right:5%;--r:10deg">🥥</div>
+<div class="sticker float" style="top:470px;left:2%;--r:8deg">🦚</div>
+<div class="sticker spin-slow" style="top:520px;right:3%;font-size:30px">✈️</div>
+<div class="sticker float" style="top:980px;right:6%;--r:-8deg">🍜</div>
+<div class="sticker float" style="top:1520px;left:3%;--r:14deg">🌅</div>
+<div class="sticker spin-slow" style="top:1600px;right:4%;font-size:28px">🛕</div>
+<div class="sticker float" style="top:2120px;left:5%;--r:-10deg">🍍</div>
+<div class="tape" style="top:60px;left:42%"></div>
+<div class="tape" style="top:430px;right:10%;transform:rotate(8deg)"></div>
+
+<header class="hero">
+  <img src="mangshi_images/jinta.png" alt="勐焕大金塔">
+  <div class="veil"></div>
+  <div class="title">
+    <h1>🌞 成都 → 芒市 轻松纯玩之旅</h1>
+    <p>9 月 26 日出发 · 5 天 4 晚（可延至 10/1）· 慢节奏 · 纯玩不赶路</p>
+    <span class="badge-flight">✈️ 双流机场 T2 ⇄ 德宏芒市机场 LUM</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 概览 -->
+  <section class="card">
+    <div class="sec-title"><span class="dot"></span>行程总览</div>
+    <p style="margin-bottom:14px">芒市，中国唯一单字命名的城市，比泰国更慵懒的边境乌托邦。金塔银塔交辉、傣味酸辣开胃、棕榈大道秒穿东南亚——最适合「松弛感」慢游。本行程按 <b>每天 2–3 个轻量点位 + 大把发呆时间</b> 编排，纯玩、不赶路。</p>
+    <div class="overview">
+      <div class="ov a">总天数<small>5 天 4 晚<br>（可加 1 天）</small></div>
+      <div class="ov b">节奏<small>轻松 · 慢游<br>日均 2–3 点</small></div>
+      <div class="ov c">适合<small>情侣 / 朋友<br>独自放空</small></div>
+      <div class="ov d">人均预算<small>约 1500–2500 元<br>（不含大交通）</small></div>
+    </div>
+  </section>
+
+  <!-- 航班 -->
+  <section class="card">
+    <div class="sec-title"><span class="dot" style="background:var(--sky)"></span>往返航班（已核实 · 双流起降）</div>
+    <div class="flight">
+      <div class="fbox">
+        <h4>🛫 去程 · 9/26（周六）</h4>
+        <div class="line"><span>推荐 西藏航空 TV9895</span><b>¥394 起</b></div>
+        <div class="line"><span>双流 T2 08:40 → 芒市 10:55</span><span class="tag">上午到·玩整天</span></div>
+        <div class="line"><span>备选 国航 CA4437</span><b>¥403 起</b></div>
+        <div class="line"><span>双流 T2 11:35 → 芒市 13:20</span><span class="tag">午间到</span></div>
+        <p style="font-size:12.5px;color:#8a7a6d;margin-top:8px">飞行约 2 小时，票价随日期浮动，建议尽早订。</p>
+      </div>
+      <div class="fbox">
+        <h4>🛬 返程（二选一）</h4>
+        <div class="line"><span><b>方案A</b> 9/30 国航 CA4438</span><b>¥545 起</b></div>
+        <div class="line"><span>芒市 14:10 → 双流 T2 15:55</span><span class="tag">下午回</span></div>
+        <div class="line"><span><b>方案B</b> 10/1 西藏航 TV9896</span><b>¥444 起</b></div>
+        <div class="line"><span>芒市 21:55 → 双流 T2 23:30</span><span class="tag">多玩1天</span></div>
+        <p style="font-size:12.5px;color:#8a7a6d;margin-top:8px">选方案B可加 Day6 乡村/自然线，更尽兴。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 1 -->
+  <section class="card day">
+    <div class="day-head"><div class="day-no">Day 1</div><div><h3>抵达 · 金塔银塔看日落</h3><div class="sub">9/26（周六）· 落地即开启慢生活</div></div></div>
+    <div class="day-body">
+      <img src="mangshi_images/jinta.png" alt="勐焕大金塔">
+      <div>
+        <div class="tl">
+          <div class="ev"><div class="t">上午 / 中午</div><div class="x">抵芒市机场（LUM），打车约 20 分钟到市区入住、休整，来杯缅式奶茶或鲜榨牛油果汁。</div></div>
+          <div class="ev"><div class="t">16:00 后</div><div class="x"><b>勐焕大金塔</b>（免费 · 8:00–22:00）：亚洲空心金佛塔，登顶俯瞰全城，等一场金色日落。</div></div>
+          <div class="ev"><div class="t">傍晚</div><div class="x"><b>勐焕银塔</b>（¥38 · 8:00–23:00）：纯白傣泰风建筑 + 天空之镜，蓝调时刻与夜景最出片。</div></div>
+          <div class="ev"><div class="t">晚上</div><div class="x"><b>傣族古镇夜市 / 新玩厂夜市</b>（评分 4.8）：泡鲁达、撒撇、舂鸡脚、傣味烧烤，宵夜拉满。</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip eat">🍧 必吃：泡鲁达·撒撇·舂鸡脚</span>
+          <span class="chip stay">🏨 住：芒市广场/市区（步行可达美食与金塔）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 2 -->
+  <section class="card day">
+    <div class="day-head"><div class="day-no">Day 2</div><div><h3>老城慢逛 · 珍奇园吸氧</h3><div class="sub">9/27（周日）· 市井 + 雨林</div></div></div>
+    <div class="day-body">
+      <img src="mangshi_images/shubaota.png" alt="树包塔">
+      <div>
+        <div class="tl">
+          <div class="ev"><div class="t">上午</div><div class="x"><b>菩提街棕榈大道</b>（秒穿东南亚）→ <b>菩提寺</b>（千年南传古寺）→ <b>树包塔</b>（免费：百年榕树包佛塔，又称"爱情塔"）。</div></div>
+          <div class="ev"><div class="t">中午</div><div class="x">第一综合市场 / 宏利市场：本地人食堂，尝柠檬撒撇、过手米线、鲜榨果汁。</div></div>
+          <div class="ev"><div class="t">下午</div><div class="x"><b>勐巴娜西珍奇园</b>（免费/约¥40 · 8:00–18:30）：千年古树、亿年树化玉、散养孔雀，运气好遇孔雀开屏。</div></div>
+          <div class="ev"><div class="t">晚上</div><div class="x"><b>勐巴娜西美食城</b>：傣味手抓饭 / 孔雀宴（约¥80），芭蕉叶盛装超满足。</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip eat">🍜 必吃：柠檬撒撇·过手米线·手抓饭</span>
+          <span class="chip stay">🏨 住：市区</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 3 -->
+  <section class="card day">
+    <div class="day-head"><div class="day-no">Day 3</div><div><h3>自然发呆 · 湖边咖啡</h3><div class="sub">9/28（周一）· 留白的一天</div></div></div>
+    <div class="day-body">
+      <img src="mangshi_images/kongquehu.png" alt="孔雀湖">
+      <div>
+        <div class="tl">
+          <div class="ev"><div class="t">上午</div><div class="x"><b>孔雀湖生态旅游区</b>（免费）：环湖散步、骑行、发呆，人少景美，水面倒映青山。</div></div>
+          <div class="ev"><div class="t">下午</div><div class="x">租电动车穿梭棕榈街道慢骑；或去 <b>德宏州博物馆</b>（免费 · 评分 4.9）了解傣族 / 景颇族历史。</div></div>
+          <div class="ev"><div class="t">晚上</div><div class="x"><b>百思特美食城 / 宏利市场</b> 继续扫街，把没吃到的补上。</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip eat">☕ 推荐：湖边咖啡·牛油果汁</span>
+          <span class="chip stay">🏨 住：市区 或 傣族古镇片区</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 4 -->
+  <section class="card day">
+    <div class="day-head"><div class="day-no">Day 4</div><div><h3>傣族古镇 · 穿傣服拍照</h3><div class="sub">9/29（周二）· 出片日</div></div></div>
+    <div class="day-body">
+      <img src="mangshi_images/guzhen.png" alt="傣族古镇夜景">
+      <div>
+        <div class="tl">
+          <div class="ev"><div class="t">全天</div><div class="x"><b>傣族古镇</b>（免费）：白天逛傣式建筑、非遗手作，可租傣服拍照（碎花裙超出片）。</div></div>
+          <div class="ev"><div class="t">傍晚</div><div class="x"><b>芒市广场</b>：多民族文化地标，看夜景、吹晚风。</div></div>
+          <div class="ev"><div class="t">晚上</div><div class="x">美食自由：梦幻德宏（泡鲁达¥12）、巖明小吃（撒撇¥15）、林氏圆子（过手米线¥10）。</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip eat">📸 打卡：租傣服·古镇灯笼夜景</span>
+          <span class="chip stay">🏨 住：傣族古镇片区（体验夜景）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 5 -->
+  <section class="card day">
+    <div class="day-head"><div class="day-no">Day 5</div><div><h3>采购特产 · 返程</h3><div class="sub">9/30（周三）· 或延展到 10/1</div></div></div>
+    <div class="day-body">
+      <img src="mangshi_images/food.png" alt="傣味美食">
+      <div>
+        <div class="tl">
+          <div class="ev"><div class="t">上午</div><div class="x">逛农贸市场买热带水果、小粒咖啡、缅甸零食等特产（比景区便宜）。</div></div>
+          <div class="ev"><div class="t">中午</div><div class="x">最后一顿傣味，把想念的再吃一遍。</div></div>
+          <div class="ev"><div class="t">下午</div><div class="x">乘 <b>CA4438 14:10</b> 飞双流（若选 9/30 返）。选方案B则多玩一天 ↓</div></div>
+        </div>
+        <div class="chips">
+          <span class="chip eat">🛍️ 特产：小粒咖啡·热带水果·缅甸零食</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 可选 Day6 -->
+  <section class="optional">
+    <div class="sec-title"><span class="dot" style="background:var(--leaf)"></span>✨ 可选 Day 6（选 10/1 返程时加）</div>
+    <div class="day-body" style="grid-template-columns:340px 1fr">
+      <img src="mangshi_images/jiejing.png" alt="芒市棕榈街景">
+      <div>
+        <div class="tl">
+          <div class="ev"><div class="t">上午</div><div class="x"><b>遮放</b>（贡米之乡）乡村游：稻田、傣寨、慢生活，顺路尝遮放贡米制作的米线。</div></div>
+          <div class="ev"><div class="t">下午</div><div class="x">体力好可去 <b>黑河老坡</b> 自然徒步（需自驾/包车，山路注意安全，备好防寒与雨具）。</div></div>
+          <div class="ev"><div class="t">晚上</div><div class="x">乘 TV9896 21:55 → 双流 T2 23:30，结束旅程。</div></div>
+        </div>
+        <p style="font-size:13px;color:#8a7a6d;margin-top:8px">⚠️ 黑河老坡为山区徒步，雨季路滑，量力而行；如体力有限可删减，留在市区喝咖啡更松弛。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 图集 -->
+  <section class="card">
+    <div class="sec-title"><span class="dot" style="background:var(--pink)"></span>景点美图一览</div>
+    <div class="gal">
+      <figure><img src="mangshi_images/jinta.png" alt="勐焕大金塔"><figcaption>🌟 勐焕大金塔</figcaption></figure>
+      <figure><img src="mangshi_images/yinta.png" alt="勐焕银塔"><figcaption>🤍 勐焕银塔</figcaption></figure>
+      <figure><img src="mangshi_images/zhenqiyuan.png" alt="勐巴娜西珍奇园"><figcaption>🌿 勐巴娜西珍奇园</figcaption></figure>
+      <figure><img src="mangshi_images/shubaota.png" alt="树包塔"><figcaption>🌳 树包塔</figcaption></figure>
+      <figure><img src="mangshi_images/guzhen.png" alt="傣族古镇夜景"><figcaption>🏮 傣族古镇</figcaption></figure>
+      <figure><img src="mangshi_images/kongquehu.png" alt="孔雀湖"><figcaption>💧 孔雀湖</figcaption></figure>
+      <figure><img src="mangshi_images/food.png" alt="傣味美食"><figcaption>🍲 傣味美食</figcaption></figure>
+      <figure><img src="mangshi_images/jiejing.png" alt="棕榈街景"><figcaption>🌴 棕榈街景</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 预算 -->
+  <section class="card">
+    <div class="sec-title"><span class="dot" style="background:var(--sun)"></span>预算估算（人均 · 不含往返机票）</div>
+    <table>
+      <tr><th>项目</th><th class="econ">经济档</th><th class="comf">舒适档</th></tr>
+      <tr><td class="lab">市内交通（打车/电动车）</td><td class="econ">¥150–260</td><td class="comf">¥300–500</td></tr>
+      <tr><td class="lab">住宿（4 晚）</td><td class="econ">¥600–1000</td><td class="comf">¥1000–1800</td></tr>
+      <tr><td class="lab">餐饮</td><td class="econ">¥350–500</td><td class="comf">¥600–900</td></tr>
+      <tr><td class="lab">门票（银塔+珍奇园等）</td><td class="econ">¥80–120</td><td class="comf">¥80–120</td></tr>
+      <tr><td class="lab">其他（租傣服/特产）</td><td class="econ">¥200–400</td><td class="comf">¥400–700</td></tr>
+      <tr style="font-weight:800"><td class="lab">合计</td><td class="econ">¥1380–2280</td><td class="comf">¥2380–4020</td></tr>
+      <tr><td class="lab">+ 往返机票（参考）</td><td class="econ" colspan="2">¥800–1100（经济舱，随订票日浮动）</td></tr>
+    </table>
+    <p style="font-size:13px;color:#8a7a6d;margin-top:10px">经济档按 1–2 人拼房、小吃为主；舒适档含特色民宿/好酒店与正餐。价格为区间参考，旺季/节假日会上浮。</p>
+  </section>
+
+  <!-- 贴士 -->
+  <section class="card">
+    <div class="sec-title"><span class="dot" style="background:var(--coral)"></span>实用贴士 & 避坑</div>
+    <ul class="tips">
+      <li><b>天气穿衣：</b>9 月底–10 月初芒市 20–30°C，亚热带气候，紫外线强、偶有阵雨。必备防晒霜、遮阳帽、墨镜、折叠伞、驱蚊液。</li>
+      <li><b>寺庙礼仪：</b>金塔/银塔/菩提寺着装得体（不穿吊带、超短裤），入殿脱鞋、不大声喧哗，尊重当地信仰。</li>
+      <li><b>拍照时机：</b>金银塔建议 16:00 后前往，避开正午强光；夜景带便携补光灯出片更佳。</li>
+      <li><b>美食入门：</b>撒撇新手先点「柠檬撒撇」酸辣易接受，「苦撒」风味独特谨慎尝试；认准本地人老店。</li>
+      <li><b>住宿避坑：</b>不建议住机场周边（配套少）；首选芒市广场/市区，或傣族古镇片区（氛围好、打车 10 分钟到市区）。</li>
+      <li><b>特产采购：</b>水果、咖啡、缅甸零食去农贸市场更便宜，景区周边溢价明显。</li>
+      <li><b>节奏提醒：</b>芒市适合慢旅行，拒绝特种兵赶路；如体力有限，每天都可删减 1 个点位。</li>
+    </ul>
+  </section>
+
+  <footer>
+    🌴 祝旅途松弛愉快 · 与先森的芒市慢游手账 🌴<br>
+    以上行程与价格基于公开信息（航班/景区/美食平台）整理，出行前请以官方实时信息（景区公告、车票机票、天气）为准。
+  </footer>
+
+</div>
+</body>
+</html>
